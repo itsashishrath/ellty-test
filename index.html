@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ellty Test SelectAll</title>
+    <title>Select All Pages</title>
     <style>
         * {
             margin: 0;
@@ -96,40 +96,73 @@
         /* Custom checkbox styles */
         input[type="checkbox"] {
             appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ccc;
-            border-radius: 4px;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #d0d0d0;
+            border-radius: 6px;
             cursor: pointer;
             position: relative;
             transition: all 0.2s;
             flex-shrink: 0;
+            background-color: white;
         }
 
         input[type="checkbox"]:hover {
-            border-color: #999;
+            border-color: #b0b0b0;
         }
 
-        input[type="checkbox"]:checked {
-            background-color: #E91E63;
-            border-color: #E91E63;
-            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+        /* Not selected state - empty (default styles above) */
+
+        /* Partially selected (indeterminate) - white with checkmark, no focus */
+        input[type="checkbox"]:indeterminate {
+            background-color: white;
+            border-color: #d0d0d0;
         }
 
-        input[type="checkbox"]:checked::after {
-            content: '!';
+        input[type="checkbox"]:indeterminate::after {
+            content: '✓';
             position: absolute;
-            color: white;
-            font-size: 14px;
+            color: #a0a0a0;
+            font-size: 16px;
             font-weight: bold;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
 
+        /* Partially selected with focus - white with checkmark + blue shadow */
+        input[type="checkbox"]:indeterminate:focus {
+            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.2);
+            outline: none;
+        }
+
+        /* Fully selected - blue background with white checkmark, no focus */
+        input[type="checkbox"]:checked {
+            background-color: #4285f4;
+            border-color: #4285f4;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Fully selected with focus - blue background + blue shadow */
+        input[type="checkbox"]:checked:focus {
+            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.2);
+            outline: none;
+        }
+
+        /* Not selected with focus - empty with blue shadow */
         input[type="checkbox"]:focus {
-            outline: 2px solid #2196F3;
-            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.2);
+            outline: none;
         }
 
         .done-button {
@@ -158,24 +191,6 @@
         .done-button:focus {
             outline: 2px solid #2196F3;
             outline-offset: 2px;
-        }
-
-        /* Indeterminate state */
-        input[type="checkbox"]:indeterminate {
-            background-color: #E91E63;
-            border-color: #E91E63;
-            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
-        }
-
-        input[type="checkbox"]:indeterminate::after {
-            content: '−';
-            position: absolute;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
     </style>
 </head>
